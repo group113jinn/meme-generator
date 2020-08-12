@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme Generator</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <div>Eugene's Meme generator</div>
-    <script src="js/main.js"></script>
+
+<body onload="init()">
+
+    <section class="canvas-container show">
+        <canvas id="mem-canvas" height="400" width="400" onclick="draw(event)"></canvas>
+        <!-- <button onclick="setShape('text',setText())">Text</button> -->
+        <textarea id="mem-text" cols="30" rows="2" oninput="checkMemInput()"></textarea>
+    </section>
+
+
+    <section class="gallery-container">
+        <div>
+            <ul>
+                <li class="meme">
+                    <img src="img/1.jpg" onclick>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <script src="js/main-service.js"></script>
+    <script src="js/main-control.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/meme-control.js"></script>
 </body>
+
 </html>
