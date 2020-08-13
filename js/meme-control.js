@@ -17,29 +17,6 @@ function memInit(imgIdx) {
     showLineIdx()
 }
 
-// function drawSavedLine() {
-//     gMeme.lines.find(
-        
-//         (line) => {
-//             console.log("line",line.id);
-//             console.log("active line",lineActive.id);
-//             if (line.txt && line.id !== lineActive.id) {
-                
-//                 gCtx.lineWidth = '1';
-//                 gCtx.strokeStyle = line.color;
-//                 gCtx.fillStyle = line.gBcgColor;
-//                 gCtx.font = `${line.fontSize}px  Arial`;
-//                 gCtx.textAlign = `${line.textAlign}`;
-//                 gCtx.fillText(line.txt, positionX, positionY);
-//                 gCtx.strokeText(line.txt, positionX, positionY);
-
-//             };
-//         }
-//     )
-// }
-
-
-
 
 function drawText(text, x, y) {
     gCtx.lineWidth = '1';
@@ -47,38 +24,29 @@ function drawText(text, x, y) {
     gCtx.fillStyle = lineActive.gBcgColor;
     gCtx.font = `${lineActive.fontSize}px  Arial`;
     gCtx.textAlign = `${lineActive.textAlign}`;
-    var m = gCtx.measureText(text);
-    // console.log("active:", lineActive.txt);
-    if (m.width > 365) {
-        document.getElementById("mem-text").disabled = true;
-        onNextLine()
+    var inputStr = gCtx.measureText(text);
+    if (inputStr.width > 365) {
+        if (lineActive.id === 3) {
+            document.getElementById("mem-text").disabled = true;
+        } else {
+            document.getElementById("mem-text").disabled = true;
+            onNextLine()
+        }
     }
-//     console.log();
-// drawSavedLine();
-gMeme.lines.find(
-        
-    (line) => {
-        console.log("line",line.id);
-        console.log("active line",lineActive.id);
-        if (line.txt && line.id !== lineActive.id) {
-            
-            gCtx.lineWidth = '1';
-            gCtx.strokeStyle = line.color;
-            gCtx.fillStyle = line.gBcgColor;
-            gCtx.font = `${line.fontSize}px  Arial`;
-            gCtx.textAlign = `${line.textAlign}`;
-            gCtx.fillText(line.txt, line.positionX, line.positionY);
-            gCtx.strokeText(line.txt, line.positionX, line.positionY);
-
-        };
-    }
-)
-
+    gMeme.lines.find(
+        (line) => {
+            if (line.txt && line.id !== lineActive.id) {
+                gCtx.lineWidth = '1';
+                gCtx.strokeStyle = line.color;
+                gCtx.fillStyle = line.gBcgColor;
+                gCtx.font = `${line.fontSize}px  Arial`;
+                gCtx.textAlign = `${line.textAlign}`;
+                gCtx.fillText(line.txt, line.positionX, line.positionY);
+                gCtx.strokeText(line.txt, line.positionX, line.positionY);
+            }
+        })
     gCtx.fillText(text, x, y);
     gCtx.strokeText(text, x, y);
-    
-   
-
 }
 
 function drawImg(imgIdx) {
