@@ -8,24 +8,13 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body onload="init()">
+<body>
+    <button class="gallery-home" onclick="init()">Gallery</button>
 
-    <section class="canvas-container show">
-        <canvas id="mem-canvas" height="400" width="400" onclick="draw(event)"></canvas>
-        <!-- <button onclick="setShape('text',setText())">Text</button> -->
-        <textarea id="mem-text" cols="30" rows="2" oninput="checkMemInput()"></textarea>
-    </section>
+   <section class="editing-page"></section>
 
 
-    <section class="gallery-container">
-        <div>
-            <ul>
-                <li class="meme">
-                    <img src="img/1.jpg" onclick>
-                </li>
-            </ul>
-        </div>
-    </section>
+    <section class="gallery-container"></section>
 
 
     <script src="js/main-service.js"></script>
@@ -35,3 +24,12 @@
 </body>
 
 </html>
+
+
+<!-- <section class="canvas-container show">
+    <canvas id="mem-canvas" height="400" width="400"></canvas>
+     <canvas id="mem-canvas" height="400" width="400" onclick="draw(event)"></canvas> 
+     <button onclick="setShape('text',setText())">Text</button> 
+     <textarea id="mem-text" cols="20" rows="1" oninput="checkMemInput()"></textarea> 
+    <textarea id="mem-text" cols="20" rows="1" oninput="handleText()"></textarea>
+</section> -->

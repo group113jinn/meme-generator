@@ -2,103 +2,107 @@
 
 var gCanvas;
 var gCtx;
-var gCurrShape = 'text';
 var gText;
-var gColor = "#0000ff";
-var gBcgColor = "#00ff00";
 var bcgActive;
+var lineActive;
 
 
-function memInit() {
-    document.querySelector('.canvas-container').classList.toggle('show')
+
+
+function memInit(imgIdx) {
+    renderCanvas();
     gCanvas = document.getElementById('mem-canvas');
     gCtx = gCanvas.getContext('2d');
-   bcgActive =  drawImg();
+    drawImg(imgIdx);
+    showLineIdx()
 }
 
-function draw(ev) {
-    const { offsetX, offsetY } = ev;
-    
+// function drawSavedLine() {
+//     gMeme.lines.map(
+        
+//         (line) => {
+//             console.log("line",line.id);
+//             console.log("active line",lineActive.id);
+//             if (line.txt && line.id !== lineActive.id) {
+//                 gCtx.fillText(line.txt, positionX, positionY);
+//                 gCtx.strokeText(line.txt, positionX, positionY);
 
-    switch (gCurrShape) {
-        case 'triangle':
-            drawTriangle(offsetX, offsetY);
-            break;
-        case 'rect':
-            drawRect(offsetX, offsetY);
-            break;
-        case 'text':
-            drawText(gText, offsetX, offsetY);
-            break;
-        case 'line':
-            drawLine(offsetX, offsetY);
-            break;
-        case 'arc':
-            drawArc(offsetX, offsetY);
-            break;
-        case 'pencil':
-            drawPencil();
-            break;
-        case 'weird':
-            drawWeird();
-            break;
-    }
-}
-
-function setText(){
-    gText =  checkMemInput();
-}
-
-// function setShape(shape) {
-//     gCurrShape = shape;
+//             };
+//         }
+//     )
 // }
 
+
+
+
 function drawText(text, x, y) {
-    gCtx.lineWidth = '2';
-    gCtx.strokeStyle = gColor;
-    gCtx.fillStyle = gBcgColor;
-    gCtx.font = '40px Ariel';
-    gCtx.textAlign = 'center';
+    gCtx.lineWidth = '1';
+    gCtx.strokeStyle = lineActive.color;
+    gCtx.fillStyle = lineActive.gBcgColor;
+    gCtx.font = `${lineActive.fontSize}px  Ariel`;
+    gCtx.textAlign = `${lineActive.textAlign}`;
+    var m = gCtx.measureText(text);
+    // console.log("active:", lineActive.txt);
+    if (m.width > 365) {
+        document.getElementById("mem-text").disabled = true;
+        onNextLine()
+    }
+// drawSavedLine();
+
     gCtx.fillText(text, x, y);
     gCtx.strokeText(text, x, y);
+    
    
-}
-
-function drawImg() {
-    const img = new Image();
-    img.src = gImgs[0].url;
-    img.onload = () => {
-        bcgActive = img;
-        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-    }
-}
-
-var horizontal = 30; 
-
-function checkMemInput() {
-
-    var vertical = 30;
-    if(horizontal > (gCanvas.width/2)){
-        console.log('noob');
-        vertical = 130;
-        horizontal = 30; 
-        return;
-    }
-   var input = document.querySelector('#mem-text');
-   clearCanvas();
-  
-   
-   gCtx.drawImage( bcgActive, 0, 0, gCanvas.width, gCanvas.height);
- drawText(input.value, horizontal, vertical)
- console.log(horizontal);
-horizontal += 10;
-// vertical += 25;
 
 }
+
+function drawImg(imgIdx) {
+    findImage(imgIdx);
+}
+
+
 
 function clearCanvas() {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
-    
-    // You may clear part of the canvas
-    // gCtx.clearRect(0, 0, gCanvas.width / 2, gCanvas.height / 2);
+}
+
+
+
+function handleText() {
+
+    var vertical = lineActive.positionY;
+    var horizontal = lineActive.positionX;
+    clearCanvas();
+    var input = document.querySelector('#mem-text');
+    lineActive.txt = input.value;
+    gCtx.drawImage(bcgActive, 0, 0, gCanvas.width, gCanvas.height);
+    drawText(lineActive.txt, horizontal, vertical);
+
+}
+
+function onNextLine() {
+    var input = document.getElementById("mem-text")
+    input.disabled = false;
+    input.value = '';
+
+    goNextLine();
+    showLineIdx();
+}
+
+function showLineIdx() {
+    var idx = getLineIdx();
+    lineActive = gMeme.lines[idx];
+
+    document.querySelector('.line-current').textContent = `${getLineIdx()+1}`;
+}
+
+function onNextFontSize() {
+    nextFontSize();
+    showFontSize();
+}
+
+
+
+function setSize(size) {
+    setFontSize(size);
 }

@@ -1,37 +1,86 @@
 'use strict'
 
-console.log('test ms');
 
-var gKeywords = {
-   'happy': 12,
-   'funny puk': 1
-}
 
-var gImgs = [
-    {
-    id: 1,
-    url: 'img/1.jpg',
-    keywords: ['trumpy']
-},
-    {
-    id: 2,
-    url: 'img/2.jpg',
-    keywords: ['happy']
-}
-]
 
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
 
     lines: [
+     
         {
-            txt: 'I need falafel',
-            size: 20,
+            id: 1,
+            positionY: 100,
+            positionX: 10,
+            txt: '',
+            fontSize: 30,
             align: 'left',
-            color: 'red'
+            color: 'yellow',
+            bcgColor: 'green'
+
+        },
+        {
+            id: 2,
+            positionY: 230,
+            positionX: 10,
+            txt: '',
+            fontSize: 30,
+            align: 'left',
+            color: 'green',
+            bcgColor: 'violet'
+
+        },
+     
+        {
+
+            id: 3,
+            positionY: 390,
+            positionX: 10,
+            txt: '',
+            fontSize: 30,
+            align: 'left',
+            color: 'yellow',
+            bcgColor: 'green'
 
         }
     ]
 }
 
+
+function findImage(imgIdx) {
+    const img = new Image();
+    var obj = gImgs.find(gimg => {
+        if(imgIdx === gimg.id){
+            gMeme.selectedImgId = gimg.id;
+            return gimg
+        }
+    })
+    img.src = obj.url
+    img.onload = () => {
+        bcgActive = img;
+        gCtx.drawImage(bcgActive, 0, 0, gCanvas.width, gCanvas.height);
+    }
+}
+
+
+
+
+
+function goNextLine() {
+    (gMeme.selectedLineIdx + 1 >= gMeme.lines.length) ? gMeme.selectedLineIdx = 0: gMeme.selectedLineIdx++;
+    
+}
+
+function getLineIdx() {
+    
+    return gMeme.selectedLineIdx;
+}
+
+function showSize(newVal) {
+    document.getElementById("size-span").innerHTML = newVal;
+}
+
+function setFontSize(size) {
+    lineActive.fontSize = +size;
+}
