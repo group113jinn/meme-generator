@@ -8,7 +8,7 @@ var gMeme = {
     selectedLineIdx: 0,
 
     lines: [
-     
+
         {
             id: 1,
             positionY: 70,
@@ -31,7 +31,7 @@ var gMeme = {
             bcgColor: 'violet'
 
         },
-     
+
         {
 
             id: 3,
@@ -51,7 +51,7 @@ var gMeme = {
 function findImage(imgIdx) {
     const img = new Image();
     var obj = gImgs.find(gimg => {
-        if(imgIdx === gimg.id){
+        if (imgIdx === gimg.id) {
             gMeme.selectedImgId = gimg.id;
             return gimg
         }
@@ -69,7 +69,7 @@ function findImage(imgIdx) {
 
 function goNextLine() {
     (gMeme.selectedLineIdx + 1 >= gMeme.lines.length) ? gMeme.selectedLineIdx = 0: gMeme.selectedLineIdx++;
-    
+
 }
 
 function getLineIdx() {
@@ -87,6 +87,21 @@ function setFontSize(size) {
 function getLineUp() {
     lineActive.positionY -= 20;
 }
+
 function getLineDown() {
     lineActive.positionY += 20;
+}
+
+function alignLeft() {
+    lineActive.align = 'left';
+}
+
+function alignCenter() {
+    lineActive.align = 'center';
+    lineActive.positionX = 200;
+}
+
+function alignRight() {
+    lineActive.align = 'right';
+    lineActive.positionX = 390;
 }

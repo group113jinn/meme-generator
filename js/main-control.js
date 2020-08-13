@@ -47,6 +47,11 @@ function renderCanvas() {
     <button class="line-up" onclick="onLineUp()">Up</button>
     <button class="line-down" onclick="onLineDown()">Down</button>
     </div>
+    <div>
+    <button class="align-left" onclick="onAlignLeft()">Left</button>
+    <button class="align-center" onclick="onAlignCenter()">Center</button>
+    <button class="align-right" onclick="onAlignRight()">Right</button>
+    </div>
     
     
     `

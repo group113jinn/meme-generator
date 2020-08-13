@@ -23,7 +23,7 @@ function drawText(text, x, y) {
     gCtx.strokeStyle = lineActive.color;
     gCtx.fillStyle = lineActive.gBcgColor;
     gCtx.font = `${lineActive.fontSize}px  Arial`;
-    gCtx.textAlign = `${lineActive.textAlign}`;
+    gCtx.textAlign = `${lineActive.align}`;
     var inputStr = gCtx.measureText(text);
     if (inputStr.width > 365) {
         if (lineActive.id === 3) {
@@ -48,7 +48,7 @@ function drawText(text, x, y) {
                 gCtx.strokeStyle = line.color;
                 gCtx.fillStyle = line.gBcgColor;
                 gCtx.font = `${line.fontSize}px  Arial`;
-                gCtx.textAlign = `${line.textAlign}`;
+                gCtx.textAlign = `${line.align}`;
                 gCtx.fillText(line.txt, line.positionX, line.positionY);
                 gCtx.strokeText(line.txt, line.positionX, line.positionY);
             }
@@ -110,4 +110,14 @@ function onLineUp() {
 }
 function onLineDown() {
     getLineDown()
+}
+
+function onAlignLeft(){
+    alignLeft()
+}
+function onAlignCenter(){
+    alignCenter()
+}
+function onAlignRight(){
+    alignRight()
 }
