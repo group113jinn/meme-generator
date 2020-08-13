@@ -22,14 +22,12 @@ function drawText(text, x, y) {
     gCtx.lineWidth = '1';
     gCtx.strokeStyle = lineActive.color;
     gCtx.fillStyle = lineActive.gBcgColor;
-    gCtx.font = `${lineActive.fontSize}px  Arial`;
+    gCtx.font = `${lineActive.fontSize}px  Impact`;
     gCtx.textAlign = `${lineActive.align}`;
     var inputStr = gCtx.measureText(text);
     if (inputStr.width > 365) {
         if (lineActive.id === 3) {
             document.getElementById("mem-text").disabled = true;
-            
-
             document.getElementById("mem-text").value = '';
             document.getElementById("mem-text").disabled = false;
             document.getElementById("mem-text").placeholder = 'Press next line to edit your text or press save '
@@ -39,6 +37,7 @@ function drawText(text, x, y) {
             document.getElementById("mem-text").disabled = true;
             document.getElementById("mem-text").placeholder = 'Click here to continue';
             onNextLine()
+            document.getElementById("mem-text").select()
         }
     }
     gMeme.lines.find(
@@ -47,7 +46,7 @@ function drawText(text, x, y) {
                 gCtx.lineWidth = '1';
                 gCtx.strokeStyle = line.color;
                 gCtx.fillStyle = line.gBcgColor;
-                gCtx.font = `${line.fontSize}px  Arial`;
+                gCtx.font = `${line.fontSize}px  Impact`;
                 gCtx.textAlign = `${line.align}`;
                 gCtx.fillText(line.txt, line.positionX, line.positionY);
                 gCtx.strokeText(line.txt, line.positionX, line.positionY);
