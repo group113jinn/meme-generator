@@ -11,7 +11,7 @@ var gMeme = {
      
         {
             id: 1,
-            positionY: 100,
+            positionY: 70,
             positionX: 10,
             txt: '',
             fontSize: 30,
@@ -73,7 +73,6 @@ function goNextLine() {
 }
 
 function getLineIdx() {
-    
     return gMeme.selectedLineIdx;
 }
 
@@ -83,4 +82,11 @@ function showSize(newVal) {
 
 function setFontSize(size) {
     lineActive.fontSize = +size;
+}
+
+function getLineUp() {
+    lineActive.positionY -= 20;
+}
+function getLineDown() {
+    lineActive.positionY += 20;
 }

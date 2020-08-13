@@ -28,8 +28,16 @@ function drawText(text, x, y) {
     if (inputStr.width > 365) {
         if (lineActive.id === 3) {
             document.getElementById("mem-text").disabled = true;
+            
+
+            document.getElementById("mem-text").value = '';
+            document.getElementById("mem-text").disabled = false;
+            document.getElementById("mem-text").placeholder = 'Press next line to edit your text or press save '
+            
+           
         } else {
             document.getElementById("mem-text").disabled = true;
+            document.getElementById("mem-text").placeholder = 'Click here to continue';
             onNextLine()
         }
     }
@@ -62,7 +70,6 @@ function clearCanvas() {
 
 
 function handleText() {
-
     var vertical = lineActive.positionY;
     var horizontal = lineActive.positionX;
     clearCanvas();
@@ -94,8 +101,13 @@ function onNextFontSize() {
     showFontSize();
 }
 
-
-
 function setSize(size) {
     setFontSize(size);
+}
+
+function onLineUp() {
+    getLineUp()
+}
+function onLineDown() {
+    getLineDown()
 }
