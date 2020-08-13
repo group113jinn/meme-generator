@@ -90,9 +90,15 @@ function onNextLine() {
 
 function showLineIdx() {
     var idx = getLineIdx();
-    lineActive = gMeme.lines[idx];
+    // lineActive = gMeme.lines[idx];
 
-    document.querySelector('.line-current').textContent = `${getLineIdx()+1}`;
+    gMeme.lines.find(line => {
+       if(line.id === idx){
+           lineActive = line
+       }
+    })
+
+    document.querySelector('.line-current').textContent = `${idx}`;
 }
 
 function onNextFontSize() {

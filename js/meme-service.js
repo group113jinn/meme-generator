@@ -5,7 +5,7 @@
 
 var gMeme = {
     selectedImgId: 1,
-    selectedLineIdx: 0,
+    selectedLineIdx: 1,
 
     lines: [
 
@@ -27,7 +27,7 @@ var gMeme = {
             txt: '',
             fontSize: 30,
             align: 'left',
-            color: 'green',
+            color: 'pink',
             bcgColor: 'violet'
 
         },
@@ -41,7 +41,7 @@ var gMeme = {
             fontSize: 30,
             align: 'left',
             color: 'yellow',
-            bcgColor: 'green'
+            bcgColor: 'blue'
 
         }
     ]
@@ -68,7 +68,7 @@ function findImage(imgIdx) {
 
 
 function goNextLine() {
-    (gMeme.selectedLineIdx + 1 >= gMeme.lines.length) ? gMeme.selectedLineIdx = 0: gMeme.selectedLineIdx++;
+    (gMeme.selectedLineIdx + 1 > gMeme.lines.length) ? gMeme.selectedLineIdx = 1: gMeme.selectedLineIdx++;
 
 }
 
