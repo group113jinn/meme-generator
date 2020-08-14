@@ -11,6 +11,7 @@ var gMeme = {
 
         {
             id: 1,
+            stroke: '1',
             positionY: 70,
             positionX: 10,
             txt: '',
@@ -23,6 +24,7 @@ var gMeme = {
         },
         {
             id: 2,
+            stroke: '1',
             positionY: 230,
             positionX: 10,
             txt: '',
@@ -37,6 +39,7 @@ var gMeme = {
         {
 
             id: 3,
+            stroke: '1',
             positionY: 390,
             positionX: 10,
             txt: '',
@@ -111,18 +114,28 @@ function fontToggle() {
   }
 }
 
-function clearCanvas() {
-    gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
-    findImg();
-}
+
 
 function downloadCanvas(elLink) {
     const data = gCanvas.toDataURL();
-    // console.log(data); /// show base64 string
     elLink.href = data;
     elLink.download = `'my-image${getRndInteger(1,10000)}.jpg'`;
 }
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
+  }
+
+
+  function changeStroke() {
+    ( lineActive.stroke + 1 > 10) ? lineActive.stroke = 1: lineActive.stroke++;
+    console.log(lineActive.stroke);
+  }
+
+  function resetStoredText(){
+    gMeme.lines.forEach(
+        (line) => {
+         line.txt = '';
+        })
+
   }

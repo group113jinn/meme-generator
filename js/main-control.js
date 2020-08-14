@@ -52,22 +52,25 @@ function renderCanvas() {
     <button class="align-right" onclick="onAlignRight()">Right</button>
     </div>
     <div>
-    <button class="font" onclick="onFontToggle()">A</button>
+    <button class="font" onclick="onFontToggle()">Font</button>
     </div>
     <div>
-    <button class="clear" onclick="onClearCanvas()">Clear</button>
+    <button class="clear" onclick="onResetCanvas()">Clear</button>
+    </div>
+    <div>
+    <button class="stroke" onclick="onChangeStroke()">A</button>
     </div>
     <form onsubmit="setColor(event)">
     <input type="color" id="color-tool" value="#0000ff" hidden >
     <button  onclick="colorUpdate()" class="color-btn">Color</button>
-</form>
-<form onsubmit="setBcgColor(event)">
+    </form>
+    <form onsubmit="setBcgColor(event)">
     <input type="color" id="bcolor-tool" value="#00ff00" hidden >
     <button  onclick="bcgColorUpdate()" class="bcolor-btn">bColor</button>
-</form>
-<div>
-<button class="down"><a href="#" onclick="downloadCanvas(this)" download="">Download</a></button>
-</div>
+    </form>
+    <div>
+    <button class="down"><a href="#" onclick="downloadCanvas(this)" download="">Download</a></button>
+    </div>
     
     
     `

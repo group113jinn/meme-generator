@@ -23,7 +23,8 @@ function memInit(imgIdx) {
 
 
 function drawText(text, x, y) {
-    gCtx.lineWidth = '1';
+    // move to servive
+    gCtx.lineWidth = lineActive.stroke;
     gCtx.strokeStyle = lineActive.color;
     gCtx.fillStyle = lineActive.gBcgColor;
     gCtx.font = `${lineActive.fontSize}px  ${lineActive.font}`;
@@ -47,7 +48,8 @@ function drawText(text, x, y) {
     gMeme.lines.find(
         (line) => {
             if (line.txt && line.id !== lineActive.id) {
-                gCtx.lineWidth = '1';
+                // move to service
+                gCtx.lineWidth = line.stroke;
                 gCtx.strokeStyle = line.color;
                 gCtx.fillStyle = line.gBcgColor;
                 gCtx.font = `${line.fontSize}px  ${line.font}`;
@@ -74,12 +76,21 @@ function clearCanvas() {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
 }
 
+function onResetCanvas() {
+    gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+    drawImg();
+    resetStoredText();
+    document.getElementById("mem-text").value = '';
+    document.getElementById("mem-text").select()
+}
+
 
 
 function handleText() {
     var vertical = lineActive.positionY;
     var horizontal = lineActive.positionX;
     clearCanvas();
+    drawImg()
     var input = document.querySelector('#mem-text');
     lineActive.txt = input.value;
     drawImg()
@@ -135,6 +146,9 @@ function onAlignRight(){
 
 function onFontToggle() {
     fontToggle();
+}
+function onChangeStroke() {
+    changeStroke();
 }
 
  function onClearCanvas() {
