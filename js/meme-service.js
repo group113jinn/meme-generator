@@ -14,6 +14,7 @@ var gMeme = {
             positionY: 70,
             positionX: 10,
             txt: '',
+            font: 'Impact',
             fontSize: 30,
             align: 'left',
             color: 'yellow',
@@ -25,6 +26,7 @@ var gMeme = {
             positionY: 230,
             positionX: 10,
             txt: '',
+            font: 'Impact',
             fontSize: 30,
             align: 'left',
             color: 'pink',
@@ -38,6 +40,7 @@ var gMeme = {
             positionY: 390,
             positionX: 10,
             txt: '',
+            font: 'Impact',
             fontSize: 30,
             align: 'left',
             color: 'yellow',
@@ -49,22 +52,14 @@ var gMeme = {
 
 
 function findImage(imgIdx) {
-    const img = new Image();
-    var obj = gImgs.find(gimg => {
+     gImgs.find(gimg => {
         if (imgIdx === gimg.id) {
             gMeme.selectedImgId = gimg.id;
-            return gimg
+            imgActive = gimg.url
         }
     })
-    img.src = obj.url
-    img.onload = () => {
-        bcgActive = img;
-        gCtx.drawImage(bcgActive, 0, 0, gCanvas.width, gCanvas.height);
-    }
+   
 }
-
-
-
 
 
 function goNextLine() {
@@ -105,3 +100,29 @@ function alignRight() {
     lineActive.align = 'right';
     lineActive.positionX = 390;
 }
+
+function fontToggle() {
+  if(!isImpact){
+      isImpact = true;
+      lineActive.font = 'Impact';
+  }else{
+      isImpact = false;
+      lineActive.font = 'Arial';
+  }
+}
+
+function clearCanvas() {
+    gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+    findImg();
+}
+
+function downloadCanvas(elLink) {
+    const data = gCanvas.toDataURL();
+    // console.log(data); /// show base64 string
+    elLink.href = data;
+    elLink.download = `'my-image${getRndInteger(1,10000)}.jpg'`;
+}
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
+  }

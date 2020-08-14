@@ -2,7 +2,6 @@
 
 
 function init() {
-    // document.querySelector('.meme').addEventListener('click',memInit)
     renderGallery();
 
 }
@@ -52,6 +51,23 @@ function renderCanvas() {
     <button class="align-center" onclick="onAlignCenter()">Center</button>
     <button class="align-right" onclick="onAlignRight()">Right</button>
     </div>
+    <div>
+    <button class="font" onclick="onFontToggle()">A</button>
+    </div>
+    <div>
+    <button class="clear" onclick="onClearCanvas()">Clear</button>
+    </div>
+    <form onsubmit="setColor(event)">
+    <input type="color" id="color-tool" value="#0000ff" hidden >
+    <button  onclick="colorUpdate()" class="color-btn">Color</button>
+</form>
+<form onsubmit="setBcgColor(event)">
+    <input type="color" id="bcolor-tool" value="#00ff00" hidden >
+    <button  onclick="bcgColorUpdate()" class="bcolor-btn">bColor</button>
+</form>
+<div>
+<button class="down"><a href="#" onclick="downloadCanvas(this)" download="">Download</a></button>
+</div>
     
     
     `

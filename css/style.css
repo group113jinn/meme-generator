@@ -26,3 +26,17 @@ canvas {
 .show {
     display: none;
 }
+
+#color-tool, #bcolor-tool {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 12em;
+    width: 12em;
+    background-color: orange;
+    border-radius: 50%;
+    border: none;
+    padding: 3em;
+    color: #0000ff
+}
