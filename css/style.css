@@ -223,13 +223,90 @@ min-width: 322px;
     text-align: center;
 }
 
+/*---------------------------- control container------------------------------------- */
+
+.control-container {
+    height: 70vh;
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    grid-template-rows: repeat(5, 100px);
+    grid-template-areas: "text-wrap text-wrap text-wrap text-wrap text-wrap" "next-line next-line next-line  line-up-wrap line-down-wrap" "font-size font-size font-size  font stroke-wrap" "align-left align-center align-right color-wrap bcg" "  clear . . . download";
+    justify-content: center;
+    align-content: end;
+}
+
+.text-wrap {
+    grid-area: text-wrap;
+}
+
+.next-line-wrap {
+    grid-area: next-line;
+}
+
+.font-size-wrap {
+    grid-area: font-size;
+}
+
+.line-up-wrap {
+    grid-area: line-up-wrap;
+}
+
+.line-down-wrap {
+    grid-area: line-down-wrap;
+}
+
+.align-left-wrap {
+    grid-area: align-left;
+}
+
+.align-center-wrap {
+    grid-area: align-center;
+}
+
+.align-right-wrap {
+    grid-area: align-right;
+}
+
+.font-wrap {
+    grid-area: font;
+}
+
+.clear-wrap {
+    grid-area: clear;
+}
+
+.stroke-wrap {
+    grid-area: stroke-wrap;
+}
+
+.color-wrap {
+    grid-area: color-wrap;
+}
+
+.bcgcolor-wrap {
+    grid-area: bcg;
+}
+
+.download-wrap {
+    grid-area: download;
+}
+
+
+/* ------------------------end of control container--------------------------------- */
+
+.editing-page {
+    display: flex;
+}
 
 
 
 @media (max-width: 800px) {
 
 
-
+    .editing-page {
+        display: flex;
+        flex-direction: column;
+    }
 
     .mobile-menu {
         font-size: 25px;
