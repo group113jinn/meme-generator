@@ -459,7 +459,55 @@ canvas {
     background-image: none;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 950px) {
+    .control-container {
+        margin: auto;
+        height: 50vh;
+        display: grid;
+        grid-template-columns: repeat(5, 40px);
+        grid-template-rows: repeat(5, 40px);
+        grid-gap: 10px;
+        grid-template-areas: "text-wrap text-wrap text-wrap text-wrap text-wrap" "next-line next-line next-line  line-up-wrap line-down-wrap" "font-size font-size font-size  font stroke-wrap" "align-left align-center align-right color-wrap bcg" "  clear . . . download";
+        justify-content: start;
+        align-content: start;
+        padding-left: 10px;
+    }
+
+    
+.editing-page button {
+    background-color: #fff;
+    height: 40px;
+    width: 40px;
+    border: none;
+    border-radius: 12px;
+}
+
+
+    canvas {
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 0;
+    }
+    .canvas-container {
+        text-align: center;
+        margin: 0 auto;
+        width: 250px;
+        height: 250px;
+        border-radius: 15px;
+        padding: 0;
+    }
+    #mem-canvas {
+        width: 250px;
+        height: 250px;
+    }
+   
+}
+
+
+
+
+
+@media (max-width: 650px) {
     .control-container {
         margin: auto;
         height: 50vh;
