@@ -9,14 +9,57 @@
 </head>
 
 <body>
-    <button class="gallery-home" onclick="init()">Gallery</button>
 
-  
+    <div class="screen" onclick="toggleMenu()"></div>
 
-   <section class="editing-page"></section>
+    <!-- <div class="meme-container"> -->
+
+    <!-- Do not remove button below -->
+    <!-- <button class="gallery-home" onclick="init()">Gallery</button> -->
 
 
-    <section class="gallery-container"></section>
+
+    <header>
+        <div class="navbar">
+            <h1 class="logo">memgen</h1>
+            <div class="main-nav">
+                <button onclick="toggleMenu(),init()">Gallery</button>
+                <button onclick="toggleMenu()">About</button>
+
+
+            </div>
+            <span class="mobile-menu" onclick="toggleMenu()">☰</span>
+            <span class="mobile-menu-x" onclick="toggleMenu()">&#10006;</span>
+        </div>
+
+    </header>
+    <main>
+        <!-- Rendering Area -->
+        <div class="editing-page"></div>
+        <div class="container"></div>
+        <!-- End rendering area -->
+        <div class="ad-container">
+            <!-- <div class="ad-center">
+                <div class="ad-img-container">
+                    <img src="img/geller.png" alt="trivia" class="ad-img">
+                </div>
+
+                <div class="ad-plot">
+                    <h1>Monica Geller</h1>
+                    <p>is afictional character,one of the six main characters who appears on the American sitcom Friends</p>
+                    <div class="social-container">Social</div>
+                </div>
+            </div> -->
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="center-footer">
+                <h1 class="logo-footer">memgen</h1>
+                <p class="coffee-footer">All rights reserved 2019</p>
+            </div>
+    </footer>
+    <!-- </div> -->
 
 
     <script src="js/main-service.js"></script>
@@ -26,12 +69,3 @@
 </body>
 
 </html>
-
-
-<!-- <section class="canvas-container show">
-    <canvas id="mem-canvas" height="400" width="400"></canvas>
-     <canvas id="mem-canvas" height="400" width="400" onclick="draw(event)"></canvas> 
-     <button onclick="setShape('text',setText())">Text</button> 
-     <textarea id="mem-text" cols="20" rows="1" oninput="checkMemInput()"></textarea> 
-    <textarea id="mem-text" cols="20" rows="1" oninput="handleText()"></textarea>
-</section> -->

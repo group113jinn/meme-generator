@@ -62,14 +62,30 @@ function drawText(text, x, y) {
     gCtx.strokeText(text, x, y);
 }
 
+function handleText() {
+    var vertical = lineActive.positionY;
+    var horizontal = lineActive.positionX;
+    clearCanvas();
+    drawImg()
+    var input = document.querySelector('#mem-text');
+    lineActive.txt = input.value;
+    drawText(lineActive.txt, horizontal, vertical);
+
+}
+
 function drawImg() {
      const img = new Image();
       img.src = imgActive;
-    // img.onload = () => {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-    // }
 }
 
+function reloadImg() {
+     const img = new Image();
+      img.src = imgActive;
+     img.onload = () => {
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+     }
+}
 
 
 function clearCanvas() {
@@ -78,25 +94,12 @@ function clearCanvas() {
 
 function onResetCanvas() {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
-    drawImg();
     resetStoredText();
     document.getElementById("mem-text").value = '';
     document.getElementById("mem-text").select()
+    reloadImg();
 }
 
-
-
-function handleText() {
-    var vertical = lineActive.positionY;
-    var horizontal = lineActive.positionX;
-    clearCanvas();
-    drawImg()
-    var input = document.querySelector('#mem-text');
-    lineActive.txt = input.value;
-    drawImg()
-    drawText(lineActive.txt, horizontal, vertical);
-
-}
 
 function onNextLine() {
     var input = document.getElementById("mem-text")
