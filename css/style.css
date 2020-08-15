@@ -512,7 +512,7 @@ canvas {
 
 @media (max-width: 650px) {
     .control-container {
-        margin: auto;
+        margin: 10px auto;
         height: 50vh;
         display: grid;
         grid-template-columns: repeat(5, 40px);
