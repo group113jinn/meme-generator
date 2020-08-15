@@ -48,7 +48,7 @@ function renderCanvas() {
     <div class="control-container">
 
     <div class="box text-wrap">
-        <textarea id="mem-text" cols="55" rows="1" oninput="handleText()"></textarea>
+        <textarea id="mem-text" cols="25" rows="1" oninput="handleText()"></textarea>
     </div>
 
     <div class="box next-line-wrap">
