@@ -35,7 +35,7 @@ function drawText(text, x, y) {
             document.getElementById("mem-text").disabled = true;
             document.getElementById("mem-text").value = '';
             document.getElementById("mem-text").disabled = false;
-            document.getElementById("mem-text").placeholder = 'Press next line to edit your text or press save '
+            document.getElementById("mem-text").placeholder = 'Press next line to edit your text'
             
            
         } else {
