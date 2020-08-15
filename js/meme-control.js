@@ -182,10 +182,12 @@ function showBColorPicker() {
 function colorUpdate() {
    if(!isColor){
        showColorPicker();
+       document.querySelector('.color-btn').classList.toggle('noimage');
        document.querySelector('.color-btn').innerText = 'apply';
        isColor = true;
    }else{
-      document.querySelector('.color-btn').innerText = 'color';
+    document.querySelector('.color-btn').classList.toggle('noimage');
+      document.querySelector('.color-btn').innerText = '';
        isColor = false;
        document.getElementById('color-tool').hidden = true;
    }
@@ -194,10 +196,12 @@ function colorUpdate() {
 function bcgColorUpdate() {
    if(!isColor){
        showBColorPicker();
+       document.querySelector('.bcolor-btn').classList.toggle('noimage');
        document.querySelector('.bcolor-btn').innerText = 'apply';
        isColor = true;
    }else{
-      document.querySelector('.bcolor-btn').innerText = 'bColor';
+    document.querySelector('.bcolor-btn').classList.toggle('noimage');
+      document.querySelector('.bcolor-btn').innerText = '';
        isColor = false;
        document.getElementById('bcolor-tool').hidden = true;
    }

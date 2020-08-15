@@ -64,21 +64,16 @@ canvas {
 #color-tool,
 #bcolor-tool {
     position: fixed;
-    top: 15%;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 12em;
-    width: 12em;
+    top: 10%;
+    left: 20%;
+    transform: translateX(50%);
+    height: 8em;
+    width: 8em;
     background-color: orange;
     border-radius: 50%;
     border: none;
-    padding: 3em;
+    padding: 2em;
     color: #0000ff
-}
-
-.container {
-    padding: 15px;
-    background-color: #e3e3e3;
 }
 
 .main-nav {
@@ -105,6 +100,8 @@ canvas {
     grid-template-columns: repeat(auto-fill, 200px);
     grid-gap: 20px;
     justify-content: center;
+    padding: 15px;
+    background-color: #e3e3e3;
 }
 
 .navbar {
@@ -384,20 +381,46 @@ canvas {
 }
 
 .down {
-    
-        background-image: url(../buttons/add.png);
-        background-repeat: no-repeat;
-        background-size: 70%;
-        background-position: center;
-    
+    background-image: url(../buttons/add.png);
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+}
+
+.text-line-current {
+    font-size: 0.8rem;
 }
 
 .line-current {
-    padding: 5px;
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20px;
+    font-weight: bold;
+    color: #ff7f00;
+    background-color: #fff;
+    border-radius: 5px;
+    
+}
+
+.font-size-wrap label {
+    font-size: 0.8rem;
+}
+
+#size-span {
+    display: inline-block;
+    font-weight: bold;
+    margin-left: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 30px;
+    background-color: #fff;
+    color: #ff7f00;
+    border-radius: 5px;
 }
 
 
-/* ------------------------end of control container--------------------------------- */
+
 
 .editing-page {
     display: flex;
@@ -407,9 +430,9 @@ canvas {
 }
 
 .edit-wrap {
+    display: flex;
     margin: 0;
     padding: 0;
-    display: flex;
     align-items: start;
 }
 
@@ -432,15 +455,38 @@ canvas {
     outline: none;
 }
 
+.noimage {
+    background-image: none;
+}
+
 @media (max-width: 700px) {
+    .control-container {
+        margin: auto;
+        height: 50vh;
+        display: grid;
+        grid-template-columns: repeat(5, 40px);
+        grid-template-rows: repeat(5, 40px);
+        grid-gap: 20px;
+        grid-template-areas: "text-wrap text-wrap text-wrap text-wrap text-wrap" "next-line next-line next-line  line-up-wrap line-down-wrap" "font-size font-size font-size  font stroke-wrap" "align-left align-center align-right color-wrap bcg" "  clear . . . download";
+        justify-content: start;
+        align-content: start;
+    }
+
+    
+.editing-page button {
+    background-color: #fff;
+    height: 40px;
+    width: 40px;
+    border: none;
+    border-radius: 12px;
+}
+
 
     canvas {
         margin: 0 auto;
         background-color: #ffffff;
         padding: 0;
     }
-
-
     .canvas-container {
         text-align: center;
         margin: 0 auto;
@@ -449,12 +495,10 @@ canvas {
         border-radius: 15px;
         padding: 0;
     }
-
     #mem-canvas {
         width: 250px;
         height: 250px;
     }
-
     .ad-plot h1 {
         margin-top: 0;
         color: #ff7f00;
@@ -520,7 +564,15 @@ canvas {
         align-items: start;
     }
     .container {
-        grid-gap: 10px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 150px);
+        justify-content: center;
+        grid-gap: 0;
+        padding: 0;
+    }
+    .meme {
+        height: 150px;
+        overflow: hidden;
     }
     .ad-center {
         flex-direction: column;

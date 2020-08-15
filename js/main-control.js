@@ -57,9 +57,9 @@ function renderCanvas() {
     </div>
 
     <div class="box font-size-wrap">
-    <label for="font-size">Font-size:</label>
+    <label for="font-size">Font-size:</label><span id="size-span">40</span>
     <input type="range" id="font-size" name="size" min="8" max="50" value="40" onchange="showSize(this.value),setSize(this.value)" />
-    <span id="size-span">40</span>
+   
     </div>
 
     <div class="box line-up-wrap">
