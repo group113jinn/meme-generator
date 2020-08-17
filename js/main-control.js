@@ -122,3 +122,8 @@ function getImages() {
 function toggleMenu() {                                    // css help function for hamburger menu
     document.body.classList.toggle('menu-open');
 }
+
+function showAbout() {
+    var elmnt = document.querySelector('.ad-img');
+    elmnt.scrollIntoView();
+}
