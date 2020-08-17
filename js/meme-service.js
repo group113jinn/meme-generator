@@ -126,7 +126,7 @@ function fontToggle() {
 function downloadCanvas(elLink) {
     const data = gCanvas.toDataURL();
     elLink.href = data;
-    elLink.download = `'my-image${getRndInteger(1,10000)}.jpg'`;
+    elLink.download = `my-image${getRndInteger(1,10000)}.jpg`;
 }
 
 function getRndInteger(min, max) {   //helper creator for download file name 
