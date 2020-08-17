@@ -20,12 +20,12 @@ function renderGallery() {
     document.querySelector('.ad-container').innerHTML =
         `<div class="ad-center">
     <div class="ad-img-container">
-        <img src="img/geller.png" alt="trivia" class="ad-img">
+        <img src="img/my.jpg" alt="trivia" class="ad-img">
     </div>
 
     <div class="ad-plot">
-        <h1>Monica Geller</h1>
-        <p>is a fictional character,one of the six main characters who appears on the American sitcom Friends</p>
+        <h1>Eugene Baranovsky</h1>
+        <p></p>
         <div class="social-container"></div>
     </div>
 </div>`;
