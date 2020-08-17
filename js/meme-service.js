@@ -1,8 +1,6 @@
 'use strict'
 
 
-
-
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 1,
@@ -37,7 +35,6 @@ var gMeme = {
         }
     ]
 }
-
 
 function findImage(imgIdx) {    //setting global variable activeImg for reuse
      gImgs.find(gimg => {
@@ -84,7 +81,6 @@ function goNextLine() {
 function getLineIdx() {
     return gMeme.selectedLineIdx;
 }
-
 
 function setFontSize(size) {
     lineActive.fontSize = +size;
@@ -133,7 +129,7 @@ function downloadCanvas(elLink) {
     elLink.download = `'my-image${getRndInteger(1,10000)}.jpg'`;
 }
 
-function getRndInteger(min, max) {
+function getRndInteger(min, max) {   //helper creator for download file name 
     return Math.floor(Math.random() * (max - min) ) + min;
   }
 
