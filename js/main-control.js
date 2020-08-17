@@ -3,7 +3,6 @@
 
 function init() {
     renderGallery();
-
 }
 
 function renderGallery() {
@@ -15,7 +14,6 @@ function renderGallery() {
                 <img src=${image.url} onclick="memInit(${image.id})">
         </div>
         `
-
     })
     document.querySelector('.editing-page').innerHTML = ``;
     document.querySelector('.container').innerHTML = strHtmls.join('');
@@ -35,30 +33,26 @@ function renderGallery() {
 
 }
 
-
-function renderCanvas() {
+function renderCanvas() {                               // too much static data rendered ?
     var strHtml = `
     <div class="edit-wrap">
     <div class="canvas-container">
          <canvas id="mem-canvas" height="400" width="400"></canvas>
-       
     </div>
 
  
     <div class="control-container">
 
     <div class="box text-wrap">
-        <textarea id="mem-text" cols="25" rows="1" oninput="handleText()"></textarea>
+        <input id="mem-text" autofocus oninput="handleText()"></input>
     </div>
 
     <div class="box next-line-wrap">
-        <span class="text-line-current" >Current Line: </span><span class="line-current">1</span>
         <button class="next-line"  onclick="onNextLine()"></button>
     </div>
 
     <div class="box font-size-wrap">
-    <label for="font-size">Font-size:</label><span id="size-span">40</span>
-    <input type="range" id="font-size" name="size" min="8" max="50" value="40" onchange="showSize(this.value),setSize(this.value)" />
+    <input type="range" id="font-size" name="size" min="10" max="50" value="40" onchange="setSize(this.value)" />
    
     </div>
 
@@ -105,24 +99,26 @@ function renderCanvas() {
     </form>
     
     <div class="box download-wrap">
-    <button class="down"><a href="#" onclick="downloadCanvas(this)" download=""></a></button>
+    <a href="#" onclick="downloadCanvas(this)" download=""><button class="down"></button></a>
+    </div>
+
+    <div class="box add-line-wrap">
+    <button class="add-line" onclick="onAddLine()"></button>
     </div>
     </div>
     </div>
 
     `
-    document.querySelector('.ad-container').innerHTML = ``;
-    document.querySelector('.ad-container').style.display = 'none';
-    document.querySelector('.container').innerHTML = ``;
+    document.querySelector('.ad-container').innerHTML = ``;         // resetting advert on edit page
+    document.querySelector('.ad-container').style.display = 'none'; // gap reset
+    document.querySelector('.container').innerHTML = ``;            // resetetting main page
     document.querySelector('.editing-page').innerHTML = strHtml;
 }
-
-
 
 function getImages() {
     return gImgs;
 }
 
-function toggleMenu() {
+function toggleMenu() {                                    // css help function for hamburger menu
     document.body.classList.toggle('menu-open');
 }

@@ -12,49 +12,34 @@ var gMeme = {
         {
             id: 1,
             stroke: '1',
-            positionY: 70,
-            positionX: 10,
+            positionY: 45,
+            positionX: 5,
             txt: '',
             font: 'Impact',
-            fontSize: 30,
-            align: 'left',
-            color: 'yellow',
-            bcgColor: 'green'
+            fontSize: 40,
+            align: 'start',
+            color: 'black',
+            bcgColor: 'white'
 
         },
         {
             id: 2,
             stroke: '1',
-            positionY: 230,
-            positionX: 10,
+            positionY: 395,
+            positionX: 5,
             txt: '',
             font: 'Impact',
-            fontSize: 30,
-            align: 'left',
-            color: 'pink',
-            bcgColor: 'violet'
-
-        },
-
-        {
-
-            id: 3,
-            stroke: '1',
-            positionY: 390,
-            positionX: 10,
-            txt: '',
-            font: 'Impact',
-            fontSize: 30,
-            align: 'left',
-            color: 'yellow',
-            bcgColor: 'blue'
+            fontSize: 40,
+            align: 'start',
+            color: 'black',
+            bcgColor: 'white'
 
         }
     ]
 }
 
 
-function findImage(imgIdx) {
+function findImage(imgIdx) {    //setting global variable activeImg for reuse
      gImgs.find(gimg => {
         if (imgIdx === gimg.id) {
             gMeme.selectedImgId = gimg.id;
@@ -64,6 +49,32 @@ function findImage(imgIdx) {
    
 }
 
+function addLine() {
+  if(gMeme.lines.length >= 8) {
+      return;
+  }
+
+ const setId = gMeme.lines.length + 1;
+ const setPositionY = gMeme.lines.length * 50;
+ 
+
+    gMeme.lines.push(  
+    {
+        id: setId,
+        stroke: '1',
+        positionY: setPositionY,
+        positionX: 5,
+        txt: '',
+        font: 'Impact',
+        fontSize: 40,
+        align: 'start',
+        color: 'black',
+        bcgColor: 'white'
+
+    }
+    
+    )
+}
 
 function goNextLine() {
     (gMeme.selectedLineIdx + 1 > gMeme.lines.length) ? gMeme.selectedLineIdx = 1: gMeme.selectedLineIdx++;
@@ -74,9 +85,6 @@ function getLineIdx() {
     return gMeme.selectedLineIdx;
 }
 
-function showSize(newVal) {
-    document.getElementById("size-span").innerHTML = newVal;
-}
 
 function setFontSize(size) {
     lineActive.fontSize = +size;
@@ -91,30 +99,33 @@ function getLineDown() {
 }
 
 function alignLeft() {
-    lineActive.align = 'left';
+    clearCanvas();
+    lineActive.align = 'start';
+    lineActive.positionX = 5;
 }
 
 function alignCenter() {
+    clearCanvas();
     lineActive.align = 'center';
     lineActive.positionX = 200;
 }
 
 function alignRight() {
-    lineActive.align = 'right';
+    clearCanvas();
+    lineActive.align = 'end';
     lineActive.positionX = 390;
 }
 
 function fontToggle() {
-  if(!isImpact){
-      isImpact = true;
+  if(isImpact){
+    
       lineActive.font = 'Impact';
-  }else{
       isImpact = false;
+  }else{
       lineActive.font = 'Arial';
+      isImpact = true;
   }
 }
-
-
 
 function downloadCanvas(elLink) {
     const data = gCanvas.toDataURL();
@@ -126,10 +137,8 @@ function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
   }
 
-
   function changeStroke() {
     ( lineActive.stroke + 1 > 10) ? lineActive.stroke = 1: lineActive.stroke++;
-    console.log(lineActive.stroke);
   }
 
   function resetStoredText(){
